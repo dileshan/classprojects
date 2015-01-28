@@ -1,0 +1,21 @@
+A sample client for the bgpmon server, written in C.
+
+Compile:
+ make
+
+Usage:
+ bgpmonclient server-ip server-port
+
+The required parameters are:
+ server-ip = ip address of bgpmon server
+ server-port = port number for bgpmon server
+
+You can try CSU's main bgpmon server at:
+ bgpmonclient 129.82.138.6 17900
+ 
+This will write stream of XML to stdout.
+
+Important:
+ If you wish to modify this client, remember that you
+ are monitoring a real-time stream and need to process 
+ it in real-time!  Slow clients will be terminated!

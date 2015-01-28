@@ -1,0 +1,9 @@
+bgpclient: bgpclient.o
+	g++ -g bgpclient.o -o bgpclient -lm
+
+bgpclient.o: bgpmonclient.cpp
+	g++ -c bgpmonclient.cpp
+
+clean:
+	rm -f bgpclient
+	rm -f bgpclient.o

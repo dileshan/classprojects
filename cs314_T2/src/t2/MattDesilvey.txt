@@ -1,0 +1,17 @@
+Team 2: Peer Evaluations
+Matt DeSilvey evaluating The Daemons Koders
+
+Matt Floyd: Grade B
+	Had a hand in the coding and planing but was gone 
+	for most of the implemention and finalization stages of
+	the program process, and atended most meetings.
+
+Davied Becker: Grade A+
+	Wrote some test cases and most of the summary and test list, and 
+	attended most meetings.
+
+Adam Schaffner: Grade A+
+	Wrote test cases and some of the report, and attended all meetings
+
+Matt DeSilvey: Grade A
+	Wrote test cases and attended all meetings except for one.

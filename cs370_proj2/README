@@ -1,0 +1,32 @@
+Names: Matt DeSilvey, Matt Floyd
+Date: 11/9/07
+Project: 2
+
+Description:
+	Program must have a readme named anything the user wishes,
+	but that same name must be entered(see input below for details).
+	This file contains a list of movies and the number of movies,
+	to be entered into the data base. There are three more 
+	arguments to be entered: number of clients, probablitily, and
+	number of transactions. With what the probablitily entered,
+	determines if there is going to be more checkout of dvd's and
+	return's of dvd's. Which all output is stored to store.out,
+	clientID.out.
+
+Assumptions:
+	-Source code in c++, and compiled has g++, in the Makefile which
+	 should be ran first.
+	-Classes as such: Dvd.cpp, Dvd.h, and proj2.cpp, don't have a client.cpp
+	 class has called for.
+	
+	input:
+	Once make is completed run the exeucable with the following syntax
+	for parameters:
+	example <number of clients> <Probability>  <number of transactions> <name of File.txt>
+	where:
+		<number of clients>      is a positive integer greater than 0
+		<Probability> 	         is a positive percentage between 0-1 inclusivly
+		<number of transactions> is a positive integer greater than 0
+		<name of file.txt>	 is the name of the file typed in
+	-Don't include the <> in the parameters, will give you errors if the
+	systax of the parameters is incorrect.

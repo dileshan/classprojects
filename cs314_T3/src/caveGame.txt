@@ -1,0 +1,20 @@
+0|w,-1,w,-1,w,-1,w,-1,x,1,w,-1|You are at the entrance to the cave.  You are surrounded by cliffs.  There is a cave entrance Down.|0|
+1|w,-1,dg,4,w,-1,w,-1,x,2,x,0|You are in a dark room.  There is a dark hole down, a bright hole up and a locked door to the east.|0|
+2|w,-1,x,5,w,-1,w,-1,x,3,x,1|You are in a slimy room with a whip.  There is a dark hole up, a dark hole down and a room to the east.|1,whip|
+3|w,-1,x,6,w,-1,w,-1,w,-1,x,2|You are in a room that smells awful.  There is a dark hole up, and a room to the east.|0|
+4|w,-1,b,18,w,-1,dg,1,w,-1,w,-1|You are in bright room with trees, a door to the west, and a black hole to the east.  OH No there is an Angry Monkey.|1,angrymonkey|
+5|w,-1,x,7,w,-1,x,2,x,6,w,-1|You are in a scary room filled with rats.  There is food on the floor.  There is a room to the west, a room to the east, and a dark hole down.|1,food|
+6|w,-1,x,8,w,-1,x,3,x,11,x5|You are in a squishy room.  There is a room to the east, a room to the west, a dark hole up and a dark whole down.  There is a gun in the room.|1,gun|
+7|w,-1,x,14,x,8,x,5,w,-1,x,9|You are in a dark empty room.  There is a room to the east, south, and west.  There is a dark hole up.|0|
+8|x,7,x,13,w,-1,x,6,x,10,w,-1|You are in a very ugly room.  There is a room to the north, east, and west.  There is a hole down.  There is a sword and silver key. Oh no there is a clone!|3,sword,clone,silverKey|
+9|w,-1,b,16,w,-1,w,-1,x,7,w,-1|You are in crazy looking room.  There is a black hole to the east, and a hole down.  There is food and a lightsaber here.|2,lightsaber,food|
+10|w,-1,ds,12,w,-1,x,11,w,-1,x,8|You are in a room with a door to the east, a room to the west and a dark hole up.  OH NO there is a Clone!|1,clone|
+11|w,-1,x,10,w,-1,w,-1,w,-1,x,6|You are in an evil room with a room to the east and a hole up.|0|
+12|w,-1,w,-1,w,-1,ds,10,w,-1,ds,13|You are in a packed room, with a door to the west and a door up.  There are a bomb, food, and a toy key.|3,food,bomb,toyKey|
+13|x,14,w,-1,w,-1,x,8,ds,12,w,-1|You are in a room, weird huh?  There is door down, a room to the north and west.  There is food.  OH NO there is a Clone!|2,food,clone|
+14|w,-1,b,14,x,13,x,7,w,-1,x,15|You are in a soft room.  There is a black hole to the east.  There is a room to the south and west.  There is a hole up.  Oh No there is a Clone!|1,clone|
+15|w,-1,w,-1,w,-1,w,-1,x,14,w,-1|You are in a greasy room.  There is a hole down.  There is food and chopsticks here.|2,food,chopsticks|
+16|w,-1,dt,17,w,-1,b,9,w,-1,w,-1|You are in a rough room.  there is a black hole to the west and a door to the east.  Oh No There is a Clone!|1,clone|
+17|w,-1,w,-1,w,-1,dt,16,w-1,w,-1|You are in a happy room, filled with a gold key, a necklace and food.|3,necklace,food,goldKey|
+18|w,-1,b,19,w,-1,b,4,w,-1,w,-1|You are in the treasure room.  Big TREASURE!!!|1,treasure|
+19|w,-1,w,-1,w,-1,b,18,w,-1,w,-1|You have made the exit.  There is a giant Waterfall!|0|

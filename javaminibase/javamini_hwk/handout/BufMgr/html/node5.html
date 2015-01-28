@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Error Protocol</TITLE>
+<META NAME="description" CONTENT="Error Protocol">
+<META NAME="keywords" CONTENT="BufMgr">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="BufMgr.css">
+<LINK REL="next" HREF="node6.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="BufMgr.html">
+<LINK REL="next" HREF="node6.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html59"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/next_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="BufMgr.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/up_motif.gif"></A> 
+<A NAME="tex2html51"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html60"
+ HREF="node6.html">What to Turn In,</A>
+<B> Up:</B> <A NAME="tex2html58"
+ HREF="BufMgr.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html52"
+ HREF="node4.html">Where to Find Makefiles,</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00050000000000000000">
+Error Protocol</A>
+</H1>
+<P>
+Though the Throwable class in Java contains a snapshot of the execution 
+stack of its thread at the time it was created and also a message
+string that gives more information about the error (exception), we have
+decided to maintain a copy of our own stack to have more control over
+the error handling.
+<P>
+We provide the <EM>chainexception</EM> package to handle the Minibase 
+exception stack.  Every exception created in your <EM>bufmgr</EM> package
+should extend the ChainException class.  The exceptions are thrown
+according to the following rule:
+<P><UL>
+<LI> Error caused by an exception caused by another layer: <BR>
+<P><PRE>
+  For example: (when try to pin page from diskmgr layer)
+
+    try {
+      SystemDefs.JavabaseBM.pinPage(pageId, page, true);
+    }
+    catch (Exception e) {
+      throw new DiskMgrException(e, &quot;DB.java: pinPage() failed&quot;);
+    }
+</PRE>
+<LI> Error not caused by exceptions of others, but needs to be
+      acknowledged.
+<P><PRE>
+  For example: (when try to unpin a page that is not pinned)
+
+        if (pin\_count == 0) {
+          throw new PageUnpinnedException (null, &quot;BUFMGR: PAGE_NOT_PINNED.&quot;);
+        }
+</PRE>
+</UL>
+<P>
+Basically, the ChainException class keeps track of all the exceptions 
+thrown accross the different layers.  Any exceptions that you decide
+to throw in your <EM>bufmgr</EM> package should extend the ChainException
+class. <BR>
+<P>
+For testing purposes, we ask you to throw the following exceptions
+in case of error (use the exact same name, please):
+<UL>
+<LI> BufferPoolExceededException <BR>
+Throw a BufferPoolExceededException when try to pin
+      a page to the buffer pool with no unpinned frame left.
+<LI> PagePinnedException <BR>
+Throw a PagePinnedException when try to free a page that
+      is still pinned.
+<LI> HashEntryNotFoundException <BR>
+Throw a HashEntryNotFoundException when page specified by
+      PageId is not found in the buffer pool.
+</UL>
+<P>
+Feel free to throw other new exceptions as you see fit.  But make 
+sure that you follow the error protocol when you catch an exception.  
+Also, think carefully about what else you need to do in the 
+<EM>catch</EM> phase. Sometimes you do need to unroll the previous 
+operations when failure happens.
+<P><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html59"
+ HREF="node6.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/next_motif.gif"></A> 
+<A NAME="tex2html57"
+ HREF="BufMgr.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/up_motif.gif"></A> 
+<A NAME="tex2html51"
+ HREF="node4.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html60"
+ HREF="node6.html">What to Turn In,</A>
+<B> Up:</B> <A NAME="tex2html58"
+ HREF="BufMgr.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html52"
+ HREF="node4.html">Where to Find Makefiles,</A>
+<!--End of Navigation Panel-->
+<ADDRESS>
+<I>Qingqing Ouyang</I>
+<BR><I>11/24/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

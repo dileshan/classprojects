@@ -1,0 +1,11 @@
+Name: Matt DeSilvey
+Date: 1/30/08
+Assignment: A1
+
+Total Time spent: 2 hours
+
+Assignment Description: Only one class written with basic math on vectors
+				problems: Mainly problems with writing Junit test first development,
+				just getting to know how junit and its methods worked, ouce that was
+				finished the testing itself and all methods in the class Vector3D work
+				correctly.

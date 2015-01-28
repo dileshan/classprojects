@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Buffer Manager Interface</TITLE>
+<META NAME="description" CONTENT="The Buffer Manager Interface">
+<META NAME="keywords" CONTENT="BufMgr">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="BufMgr.css">
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="BufMgr.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html29"
+ HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/next_motif.gif"></A> 
+<A NAME="tex2html27"
+ HREF="BufMgr.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/up_motif.gif"></A> 
+<A NAME="tex2html21"
+ HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.cs.wisc.edu/icons/latex2html/previous_motif.gif"></A>   
+<BR>
+<B> Next:</B> <A NAME="tex2html30"
+ HREF="node3.html">Internal Design</A>
+<B> Up:</B> <A NAME="tex2html28"
+ HREF="BufMgr.html">No Title</A>
+<B> Previous:</B> <A NAME="tex2html22"
+ HREF="node1.html">Introduction</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<H1><A NAME="SECTION00020000000000000000">
+The Buffer Manager Interface</A>
+</H1>
+<P>
+The simplified Buffer Manager interface that you will 
+implement in this assignment
+allows a client (a higher level program that calls the Buffer Manager) to
+allocate/de-allocate pages on disk, to bring a disk page into the buffer pool
+and pin it, and to unpin a page in the buffer pool.
+<P>
+The methods that you have to implement are described below:
+<P><PRE>
+public class BufMgr {
+
+  /**
+   * Create the BufMgr object.
+   * Allocate pages (frames) for the buffer pool in main memory and
+   * make the buffer manage aware that the replacement policy is
+   * specified by replacerArg (i.e. Clock, LRU, MRU etc.).
+   *
+   * @param numbufs number of buffers in the buffer pool.
+   * @param replacerArg name of the buffer replacement policy.
+   */
+
+  public BufMgr(int numbufs, String replacerArg) {};
+
+
+  /** 
+   * Pin a page.
+   * First check if this page is already in the buffer pool.  
+   * If it is, increment the pin_count and return a pointer to this 
+   * page.  If the pin_count was 0 before the call, the page was a 
+   * replacement candidate, but is no longer a candidate.
+   * If the page is not in the pool, choose a frame (from the 
+   * set of replacement candidates) to hold this page, read the 
+   * page (using the appropriate method from {\em diskmgr} package) and pin it.
+   * Also, must write out the old page in chosen frame if it is dirty 
+   * before reading new page.  (You can assume that emptyPage==false for
+   * this assignment.)
+   *
+   * @param Page_Id_in_a_DB page number in the minibase.
+   * @param page the pointer poit to the page.
+   * @param emptyPage true (empty page); false (non-empty page)
+   */
+
+  public void pinPage(PageId pin_pgid, Page page, boolean emptyPage) {};
+
+
+  /**
+   * Unpin a page specified by a pageId.
+   * This method should be called with dirty==true if the client has
+   * modified the page.  If so, this call should set the dirty bit 
+   * for this frame.  Further, if pin_count&gt;0, this method should 
+   * decrement it. If pin_count=0 before this call, throw an exception
+   * to report error.  (For testing purposes, we ask you to throw
+   * an exception named PageUnpinnedException in case of error.)
+   *
+   * @param globalPageId_in_a_DB page number in the minibase.
+   * @param dirty the dirty bit of the frame
+   */
+
+  public void unpinPage(PageId PageId_in_a_DB, boolean dirty) {};
+
+
+  /** 
+   * Allocate new pages.
+   * Call DB object to allocate a run of new pages and 
+   * find a frame in the buffer pool for the first page
+   * and pin it. (This call allows a client of the Buffer Manager
+   * to allocate pages on disk.) If buffer is full, i.e., you 
+   * can't find a frame for the first page, ask DB to deallocate 
+   * all these pages, and return null.
+   *
+   * @param firstpage the address of the first page.
+   * @param howmany total number of allocated new pages.
+   *
+   * @return the first page id of the new pages.  null, if error.
+   */
+
+  public PageId newPage(Page firstpage, int howmany) {};
+
+		
+  /**
+   * This method should be called to delete a page that is on disk.
+   * This routine must call the method in diskmgr package to 
+   * deallocate the page. 
+   *
+   * @param globalPageId the page number in the data base.
+   */
+
+  public void freePage(PageId globalPageId) {};
+
+
+  /**
+   * Used to flush a particular page of the buffer pool to disk.
+   * This method calls the write_page method of the diskmgr package.
+   *
+   * @param pageid the page number in the database.
+   */
+
+  public void flushPage(PageId pageid) {};
+
+};
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+<I>Qingqing Ouyang</I>
+<BR><I>11/24/1998</I>
+</ADDRESS>
+</BODY>
+</HTML>

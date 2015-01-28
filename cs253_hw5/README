@@ -1,0 +1,21 @@
+#Name: Matt DeSilvey
+#Date: 11/2/07
+#assignment number 4
+Program description:
+	Program takes in a file that has given routes and stations that builds a network
+	of trains routes betweens the stations, and the first stations and routes are put 
+	in a route that is defined in the first line. The program is user interactive where the
+	user can change some attributes of the system, like adding routes, zones, and stations,
+	as well as the status. The user can also find a path within the system once completed,
+	with adding routes and stations.
+
+Assumptions:
+	input: the given file must be type in that style, and syntax, if not in that 
+	format program will do weird things, if file is typed incorrectly the program
+	will exit.(See routes.txt) Which the file must be typed has routes.txt or the
+	program will give an error statement, the first line in the file is the zone that the
+	routes and stations are in.
+	
+	output: Depending on what the user asks for there are many different commands within the
+	the program, such as print(printing zones or stations or routes), and find path.
+	Any command typed the program will propmt you the correct questions.

@@ -1,0 +1,130 @@
+﻿The Daemon Koders
+March 5, 2008
+Team Assignment 2
+Class Testing the Cave Game
+
+List of Tests
+
+Door Class
+
+JUnit Class: DoorTest.java
+JUnit Method:  testEnter1
+Description: Tests to see if a player can enter through a door with a proper key
+Method Tested: enter
+Input Data: Uses the current room (testRoom), the next room (nextRoom), a player (dave) and a key (theKey)
+Expected Output: The location of the player equals the next room
+Actual Output: The location of the player equals the next room
+Test Coverage: Makes sure that the enter() method in the Door class works properly when the player is using the correct key
+
+JUnit Class: DoorTest.java
+JUnit Method:  testEnter2
+Description: Tests that the player cannot pass through a door without a key
+Method Tested: enter
+Input Data: Uses the current room (testRoom), the next room (nextRoom) and a player (dave)
+Expected Output: The location of the player does not equal the next room
+Actual Output: The location of the player does not equal the next room
+Test Coverage: Shows that entering through a room that requires a key will not work if the player does not possess a key
+
+JUnit Class: DoorTest.java
+JUnit Method:  testEnter3
+Description: Tests that the player cannot pass through a door without the correct key
+Method Tested: enter
+Input Data: Uses the current room (testRoom), the next room (nextRoom), a player (dave), and a key (notTheKey)
+Expected Output: The location of the player does not equal the next room
+Actual Output: The location of the player does not equal the next room
+Test Coverage: Tests the enter method making sure that if it will check to see if the player has the correct key, not just any key
+
+Room Class
+
+JUnit Class: RoomTest.java
+JUnit Method:  testAddItem
+Description: Tests that an item can be correctly added to an empty room
+Method Tested: addItem
+Input Data: Uses the current room (testRoom) and an item (itemNew)
+Expected Output: The added item is in the room
+Actual Output: The added item is in the room
+Test Coverage: Covers the addItem method in the room class, as well as parts of the item class
+
+JUnit Class: RoomTest.java
+JUnit Method:  testRemoveItem
+Description: Tests that an item being picked up by a player will no longer be in the room
+Method Tested: removeItem
+Input Data: Uses the current room (testRoom) and an array of items (arrItem)
+Expected Output: There are no items in the room
+Actual Output: There are no items in the room
+Test Coverage: Shows that the removeItem method in the Room class works
+
+JUnit Class: RoomTest.java
+JUnit Method:  testEnter
+Description: Tests to see if a player can successfully enter from one room into another
+Method Tested: enter
+Input Data: Uses the current room (testRoom), the next room (nextRoom), and a player (bob)
+Expected Output: The current location of the player is the next room
+Actual Output: The current location of the player is the next room
+Test Coverage: Covers the enter method in room
+
+JUnit Class: RoomTest.java
+JUnit Method:  testExit1
+Description: Tests that a player can be in a room and exit that room in a specific direction; the direction for this method is a room that does exist
+Method Tested: exit
+Input Data: Uses the current room (testRoom), the next room (nextRoom) and a player (bob)
+Expected Output: The current location of the player does not equal the current room
+Actual Output: The current location of the player does not equal the current room
+Test Coverage: Specifically tests the exit method, but also covers the enter method since the exit method uses the enter method; tests a direction where a room exists
+
+JUnit Class: RoomTest.java
+JUnit Method:  testExit2
+Description: Tests that a player can be in a room and exit that room in a specific direction; the direction for this method is a room that does not exist
+Method Tested: exit
+Input Data: Uses the current room (testRoom), the next room (nextRoom) and a player (bob)
+Expected Output: The current location of the player is the current room
+Actual Output: The current location of the player is the current room
+Test Coverage: Tests the exit method, but the exit method calls the enter method in order to exit a room; this will test to see if you are allowed to exit a room through a wall or not
+
+Player Class
+
+JUnit Class: PlayerTest.java
+JUnit Method:  testGo
+Description: Tests to see if a player can move successfully in a specific direction
+Method Tested: go
+Input Data: Uses the current room (testRoom), the next room (nextRoom) and a player (Rooney)
+Expected Output: The current location of the player is the next room
+Actual Output: The current location of the player is the next room
+Test Coverage: Covers the go method in the player class, which takes in a specific direction for the player to move in
+
+JUnit Class: PlayerTest.java
+JUnit Method: testPickUp1
+Description: Tests that a player has an item that he previously picked up
+Method Tested: pickUp
+Input Data: Uses the current room (testRoom), an item (testItem) and a player (Rooney)
+Expected Output: The player has the test item
+Actual Output: The player has the test item
+Test Coverage: The addItem method is first used to add the item to the room, then the pickUp method is used to allow the player to pick up the item; in the assertTrue, the haveItem method is tested to see if it shows the player has the item
+
+JUnit Class: PlayerTest.java
+JUnit Method:  testPickUp2
+Description: Tests to see if a player can pick up a second item after already having an item in his hands
+Method Tested: pickUp
+Input Data: Uses the current room (testRoom), two items (testItem, testItem2) and a player (Rooney)
+Expected Output: The player has two items in his hands
+Actual Output: The player has two items in his hands
+Test Coverage: First uses the addItem method to add the items to the room, then uses the pickUp method twice to ensure the player has the items; finally, uses numItemsCarried in the assertTrue to assure that the player is carrying two items
+
+JUnit Class: PlayerTest.java
+JUnit Method:  testDrop1
+Description: This test is used to ensure that a player can drop an item that he is carrying
+Method Tested: drop
+Input Data: Uses the current room (testRoom), an item (testItem) and a player (Rooney)
+Expected Output: The player does not have the test item
+Actual Output: The player does not have the test item
+Test Coverage: First uses the addItem and pickUp methods; then uses the drop method, which specifies which item to drop, then finally uses the haveItem method in the assertTrue
+
+JUnit Class: PlayerTest.java
+JUnit Method:  testDrop2
+Description: Tests to see if a player can drop an item if he is carrying two items
+Method Tested: drop
+Input Data: Uses the current room (testRoom), two items (testItem, testItem2) and a player (Rooney)
+Expected Output: The player does not have the second test item
+Actual Output: The player does not have the second test item
+Test Coverage: First uses the addItem and pickUp methods; then uses the drop method, which specifies which item to drop, then finally uses the haveItem method in the assertTrue
+

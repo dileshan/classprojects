@@ -1,0 +1,3 @@
+FoCoSys
+[{origin FTC; destination LGM | closed = no; primary = yes}{origin LGM; destination FTC | closed = yes; primary = no}{origin LGM; destination BOL | closed = no; primary = no}{origin BOL; destination FTC | closed = no; primary = yes}{origin BOL; destination DEN | closed = no; primary = no}]
+[FTC : FortCollins : closed = no; primary = yes; LGM : Longmont : closed = no; primary = yes; BOL : Boulder : closed = no; primary = yes; DEN : Denver : closed = yes; primary = no]

@@ -1,0 +1,65 @@
+
+Running Heap File tests....
+
+Replacer: Clock
+
+
+  Test 1: Insert and scan fixed-size records
+
+  - Create a heap file
+
+  - Add 100 records to the file
+
+*** Error inserting record 0
+
+heap.HFBufMgrException: Heapfile.java: pinPage() failed
+bufmgr.PageNotReadException: BUFMGR: DB_READ_PAGE_ERROR.
+bufmgr.BufMgrException: BufMgr.java: read_page() failed
+diskmgr.InvalidPageNumberException: BAD_PAGE_NUMBER
+	at diskmgr.DB.read_page(DB.java:143)
+	at bufmgr.BufMgr.read_page(BufMgr.java:831)
+	at bufmgr.BufMgr.pinPage(BufMgr.java:543)
+	at heap.Heapfile.pinPage(Heapfile.java:817)
+	at heap.Heapfile.insertRecord(Heapfile.java:464)
+	at tests.HFDriver.test1(HFTest.java:127)
+	at tests.HFDriver.runAllTests(HFTest.java:779)
+	at tests.HFDriver.runTests(HFTest.java:75)
+	at tests.HFTest.main(HFTest.java:903)
+heap.HFBufMgrException: Heapfile.java: pinPage() failed
+heap.HFBufMgrException: Heapfile.java: pinPage() failed
+bufmgr.PageNotReadException: BUFMGR: DB_READ_PAGE_ERROR.
+bufmgr.BufMgrException: BufMgr.java: read_page() failed
+diskmgr.InvalidPageNumberException: BAD_PAGE_NUMBER
+	at diskmgr.DB.read_page(DB.java:143)
+	at bufmgr.BufMgr.read_page(BufMgr.java:831)
+	at bufmgr.BufMgr.pinPage(BufMgr.java:543)
+	at heap.Heapfile.pinPage(Heapfile.java:817)
+	at heap.Heapfile.getRecCnt(Heapfile.java:389)
+	at tests.HFDriver.test1(HFTest.java:144)
+	at tests.HFDriver.runAllTests(HFTest.java:779)
+	at tests.HFDriver.runTests(HFTest.java:75)
+	at tests.HFTest.main(HFTest.java:903)
+
+  Test 2: Delete fixed-size records
+
+  - Open the same heap file as test 1
+
+  - Delete half the records
+
+*** Error opening scan
+
+heap.InvalidTupleSizeException: HEAPFILE: TUPLE SIZE ERROR
+	at heap.DataPageInfo.<init>(DataPageInfo.java:80)
+	at heap.Scan.firstDataPage(Scan.java:286)
+	at heap.Scan.init(Scan.java:196)
+	at heap.Scan.<init>(Scan.java:71)
+	at heap.Heapfile.openScan(Heapfile.java:737)
+	at tests.HFDriver.test2(HFTest.java:290)
+	at tests.HFDriver.runAllTests(HFTest.java:780)
+	at tests.HFDriver.runTests(HFTest.java:75)
+	at tests.HFTest.main(HFTest.java:903)
+Exception in thread "main" java.lang.NullPointerException
+	at tests.HFDriver.test2(HFTest.java:336)
+	at tests.HFDriver.runAllTests(HFTest.java:780)
+	at tests.HFDriver.runTests(HFTest.java:75)
+	at tests.HFTest.main(HFTest.java:903)
